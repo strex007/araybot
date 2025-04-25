@@ -1,0 +1,15 @@
+
+{
+  "Allergy": {
+    "description": "Allergy is caused by hyperactive immune response to harmless substances.",
+    "recommended_formulation": "Namshield Final",
+    "herbs": ["Haridra", "Guduchi", "Shirisha", "Yasthimadhu"],
+    "diet": ["Avoid curd", "Use turmeric milk", "Warm water"]
+  },
+  "Insomnia": {
+    "description": "Nidranash is often due to Vata imbalance or mental stress.",
+    "recommended_formulation": "Nidranil",
+    "herbs": ["Tagara", "Jatamansi", "Ashwagandha"],
+    "diet": ["Warm milk at night", "Avoid caffeine", "Early dinner"]
+  }
+}

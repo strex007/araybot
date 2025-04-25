@@ -1,20 +1,22 @@
+
 import streamlit as st
 from chatbot_logic import get_response
 
 st.set_page_config(page_title="ArayuBot", page_icon="🌿")
 
-# Language toggle
-language = st.selectbox("Choose Language / भाषा चुनें", ["English", "हिंदी"])
+st.title("🤖 ArayuBot - Your Ayurveda Companion")
 
-st.image("assets/logo.png", width=100)
-st.title("🌿 ArayuBot – Your Ayurvedic Buddy")
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
 
-# Input from user
-query = st.text_input("Enter your symptoms here / अपने लक्षण यहाँ दर्ज करें:")
+# Input
+user_input = st.text_input("💬 Ask me anything (Hindi or English):", key="user_input")
 
-if st.button("Consult / परामर्श लें"):
-    if query:
-        response = get_response(query, language)
-        st.markdown(response, unsafe_allow_html=True)
-    else:
-        st.warning("Please enter some symptoms.")
+if user_input:
+    response = get_response(user_input)
+    st.session_state.chat_history.append(("🧑‍⚕️ You", user_input))
+    st.session_state.chat_history.append(("🌿 ArayuBot", response))
+
+# Display conversation
+for speaker, msg in st.session_state.chat_history:
+    st.markdown(f"**{speaker}:** {msg}")
